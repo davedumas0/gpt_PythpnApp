@@ -6,7 +6,7 @@ from themes import themes
 from roles import roles
 
 
-def create_settings_panel(parent):
+def create_settings_panel(parent, output_text):
     settings_panel = tk.Frame(parent, bg="#2b2b2b", bd=2, relief=tk.SOLID)
     
     settings_label = tk.Label(settings_panel, text="Settings", font=("Arial", 14), fg="white", bg="#2b2b2b")
@@ -61,7 +61,7 @@ def create_settings_panel(parent):
     model_combobox.bind("<<ComboboxSelected>>", update_max_tokens_scale)
 
     return settings_panel, model_combobox, max_tokens_scale, temperature_scale, roles_combobox
-
+    
 
 def create_right_frame(parent):
     # function content here
