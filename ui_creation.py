@@ -1,4 +1,5 @@
 import tkinter as tk
+import ui_actions
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
 from ui_actions import on_input_text_keypress
@@ -61,7 +62,14 @@ def create_settings_panel(parent, output_text):
     model_combobox.bind("<<ComboboxSelected>>", update_max_tokens_scale)
 
     return settings_panel, model_combobox, max_tokens_scale, temperature_scale, roles_combobox
-    
+
+def apply_theme(theme):
+    # Set the colors of the UI elements according to the theme
+    # You'll need to replace 'ui_element' with the actual variables for your UI elements
+    ui_element['bg'] = theme['background']
+    ui_element['fg'] = theme['text_color']
+    # And so on for the other elements and colors in the theme
+
 
 def create_right_frame(parent):
     # function content here
