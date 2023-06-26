@@ -1,4 +1,5 @@
 import tkinter as tk
+import ui_actions
 from tkinter import ttk
 from tkinter.scrolledtext import ScrolledText
 from ui_actions import on_input_text_keypress
@@ -43,7 +44,9 @@ def create_settings_panel(parent, output_text):
     roles_label = tk.Label(settings_panel, text="Role", font=("Arial", 12), fg="white", bg="#2b2b2b")
     roles_label.pack(anchor=tk.W, padx=10, pady=5)
 
-    roles_combobox = ttk.Combobox(settings_panel, values=roles, state="readonly")
+    roles_combobox = ttk.Combobox(settings_panel, values=[
+        "helpful_assistant", "python_programmer", "web_developer", "data_scientist", "machine_learning_engineer", "software_architect", "cybersecurity_expert", "network_engineer", "database_administrator", "technical_writer", "project_manager", "qa_engineer", "travel_planner", "fitness_advisor", "nutrition_expert", "personal_finance_consultant", "relationship_advisor", "movie_recommendation_engine", "book_suggestion_engine", "shopping_assistant", "career_advisor", "language_tutor", "software_engineer_assistant"
+    ], state="readonly")
     roles_combobox.set("helpful_assistant")
     roles_combobox.pack(anchor=tk.W, padx=10, pady=5)
 
@@ -57,11 +60,16 @@ def create_settings_panel(parent, output_text):
             max_tokens_scale.set(4000)
 
     model_combobox.bind("<<ComboboxSelected>>", update_max_tokens_scale)
-    settings_panel = tk.Frame(parent, bg="#2b2b2b", bd=2, relief=tk.SOLID)
-    
-    settings_label = tk.Label(settings_panel, text="Settings", font=("Arial", 14), fg="white", bg="#2b2b2b")
-    settings_label.pack(side=tk.TOP, padx=10, pady=10)
+
     return settings_panel, model_combobox, max_tokens_scale, temperature_scale, roles_combobox
+
+def apply_theme(theme):
+    # Set the colors of the UI elements according to the theme
+    # You'll need to replace 'ui_element' with the actual variables for your UI elements
+    ui_element['bg'] = theme['background']
+    ui_element['fg'] = theme['text_color']
+    # And so on for the other elements and colors in the theme
+
 
 def create_right_frame(parent):
     # function content here
